@@ -37,11 +37,10 @@ to the `./samples` folder:
 
         cp src/mergevec.cpp ~/opencv-2.4.9/apps/haartraining
         cd ~/opencv-2.4.9/apps/haartraining
-        g++ `pkg-config --libs --cflags opencv | sed 's/libtbb\.dylib/tbb/'`\
-          -I. -o mergevec mergevec.cpp\
-          cvboost.cpp cvcommon.cpp cvsamples.cpp cvhaarclassifier.cpp\
-          cvhaartraining.cpp\
-          -lopencv_core -lopencv_calib3d -lopencv_imgproc -lopencv_highgui -lopencv_objdetect
+        g++ `pkg-config --libs --cflags opencv` -I. -o mergevec mergevec.cpp cvboost.cpp \
+        cvcommon.cpp cvsamples.cpp cvhaarclassifier.cpp cvhaartraining.cpp \ 
+        cvsamplesoutput.cpp -lopencv_core -lopencv_calib3d -lopencv_imgproc -lopencv_highgui \
+        -lopencv_objdetect
 
 7. Use the compiled executable `mergevec` to merge the samples in `./samples`
 into one file:
